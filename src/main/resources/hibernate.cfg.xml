@@ -4,9 +4,10 @@
         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
   <session-factory>
-    <property name = "hibernate.connection.url">jdbc:mysql://mysql.secdavid.cz:3306/SecDavid</property>
+    <property name = "hibernate.connection.url">jdbc:mysql://sql.secdavid.cz:3306/SecDavid</property>
     <property name = "hibernate.connection.username">SecDavid</property>
     <property name = "hibernate.connection.password">M9vfbBEU4cBq</property>
+
     <property name = "hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
     <property name = "hibernate.show_sql">true</property>
     <property name="jakarta.persistence.schema-generation.database.action">drop-and-create</property>
