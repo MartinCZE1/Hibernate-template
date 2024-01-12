@@ -1,4 +1,4 @@
-# JPA - JAva Persistent API
+# JPA - Java Persistence API
 JPA stands for *Java Persistence API*. It is a Java specification for managing, persisting, and accessing data between Java objects and relational databases. JPA provides a standard way to map Java objects to database tables and vice versa, allowing developers to interact with databases using a set of standard Java classes and annotations.
 
 *Key features of JPA include:*
