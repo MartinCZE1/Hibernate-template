@@ -1,7 +1,11 @@
 package cz.secda1.spsmb.javaJpaExample;
 
+import cz.secda1.spsmb.javaJpaExample.model.Genre;
 import cz.secda1.spsmb.javaJpaExample.model.Song;
+import cz.secda1.spsmb.javaJpaExample.model.User;
+import cz.secda1.spsmb.javaJpaExample.repository.GenreRepository;
 import cz.secda1.spsmb.javaJpaExample.repository.SongRepository;
+import cz.secda1.spsmb.javaJpaExample.repository.UserRepository;
 import cz.secda1.spsmb.javaJpaExample.services.DBInit;
 import cz.secda1.spsmb.javaJpaExample.services.DbFactory;
 import org.hibernate.Session;
@@ -23,6 +27,15 @@ public class Main {
         List<Song> filteredSongs = SongRepository.getSongsByBandName(session, "AC/DC");
         System.out.println(filteredSongs);
 
+         List <Genre> genre1= GenreRepository.getGenresByBandName(session, "Pop");
+        System.out.println(genre1);
+
+        List <User> user1= UserRepository.getUsersByName(session, "Ouyi");
+        System.out.println(user1.get(0).getSongs());
+
+
+
+
         session.beginTransaction();
         if (mySong.isPresent()){
             Song song = mySong.get();
@@ -30,6 +43,7 @@ public class Main {
             session.persist(song);
         }
         session.getTransaction().commit();
+
 
 
     }
