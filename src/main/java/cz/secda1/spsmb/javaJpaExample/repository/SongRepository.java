@@ -1,5 +1,6 @@
 package cz.secda1.spsmb.javaJpaExample.repository;
 
+import cz.secda1.spsmb.javaJpaExample.model.Rating;
 import cz.secda1.spsmb.javaJpaExample.model.Song;
 import jakarta.persistence.NoResultException;
 import org.hibernate.NonUniqueResultException;
@@ -29,5 +30,15 @@ public class SongRepository {
         return filteredSongs;
     }
 
+    public static double getSongAvgRatings(Session session, long id) {
+        List<Rating> ratings = session.createQuery("SELECT s.ratings as averageRating from Song s where s.id = :id", Rating.class)
+                .setParameter("id", id).getResultList();
+
+        double average = 0;
+        for (Rating rating:ratings) {
+            average += rating.getRating();
+        }
+        return average/ratings.size();
+    }
 
 }

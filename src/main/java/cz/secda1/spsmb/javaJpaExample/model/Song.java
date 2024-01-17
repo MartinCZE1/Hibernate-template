@@ -29,6 +29,17 @@ public class Song {
     @ManyToMany(mappedBy = "songs")
     List<User> users = new ArrayList<>();
 
+    @OneToMany(mappedBy = "song", cascade = CascadeType.ALL)
+    List<Rating> ratings = new ArrayList<>();
+
+    public List<Rating> getRatings() {
+        return ratings;
+    }
+
+    public void setRatings(List<Rating> ratings) {
+        this.ratings = ratings;
+    }
+
     public Genre getGenre() {
         return genre;
     }

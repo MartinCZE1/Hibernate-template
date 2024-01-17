@@ -33,8 +33,8 @@ public class Main {
         List <User> user1= UserRepository.getUsersByName(session, "Ouyi");
         System.out.println(user1.get(0).getSongs());
 
-
-
+        double avgRating = SongRepository.getSongAvgRatings(session, 1);
+        System.out.println(avgRating);
 
         session.beginTransaction();
         if (mySong.isPresent()){
@@ -43,8 +43,6 @@ public class Main {
             session.persist(song);
         }
         session.getTransaction().commit();
-
-
 
     }
 }
